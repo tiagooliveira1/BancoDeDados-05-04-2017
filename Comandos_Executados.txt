@@ -13,3 +13,6 @@ insert into (cpf, nome) values (65432122, 'João Teste');
 
 /* Exclui a tabela do banco de dados - não tem mais volta */
 DROP TABLE cliente;
+
+/* Alterar estrutura da tabela */
+ALTER TABLE cliente ADD email varchar2(250);
