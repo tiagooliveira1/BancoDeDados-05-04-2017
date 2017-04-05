@@ -1,18 +1,28 @@
 Comandos SQL execurtados
 
 /* cria a tabela */
-create table cliente (
-	cpf numero(11),
-	nome varchar2(100)
+CREATE TABLE CLIENTE (
+	CPF NUMBER(11),
+	NOME VARCHAR2(100)
 );
 
 
 /* Insere dados na tabela cliente */
-insert into (cpf, nome) values (123456, 'Tiago Oliveira');
-insert into (cpf, nome) values (65432122, 'João Teste');
+INSERT INTO (CPF, NOME) VALUES (123456, 'Tiago Oliveira');
+INSERT INTO (cpf, nome) VALUES (65432122, 'João Teste');
 
 /* Exclui a tabela do banco de dados - não tem mais volta */
 DROP TABLE cliente;
 
 /* Alterar estrutura da tabela */
 ALTER TABLE cliente ADD email varchar2(250);
+
+
+/* Criação de tabelas com contrains */
+CREATE TABLE DEPARTAMENTO(
+	DEPTO number(4) NOT NULL,
+	NOME VARCHAR2(40) NOT NULL, 
+	FILIAL NUMBER(4),
+	CONSTRAINT depto_pk PRIMARY KEY (DEPTO)
+);
+
