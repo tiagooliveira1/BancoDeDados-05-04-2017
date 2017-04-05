@@ -1,0 +1,15 @@
+Comandos SQL execurtados
+
+/* cria a tabela */
+create table cliente (
+	cpf numero(11),
+	nome varchar2(100)
+);
+
+
+/* Insere dados na tabela cliente */
+insert into (cpf, nome) values (123456, 'Tiago Oliveira');
+insert into (cpf, nome) values (65432122, 'João Teste');
+
+/* Exclui a tabela do banco de dados - não tem mais volta */
+DROP TABLE cliente;
