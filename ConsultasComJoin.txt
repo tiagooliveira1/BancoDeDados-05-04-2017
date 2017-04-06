@@ -2,9 +2,27 @@
 	CONSULTAS COM JOIN
 *********************************************************/
 	
-/* Pegando o contrato com nome do cliente e a taxa de juros */
+/* Pegando o contrato com nome do cliente , o nome da taxa e a taxa de juros aplicada */
 
-SELECT EF.*, CF.*, TD.*, TX.DESCRICAO
+SELECT EF.IDEMPRESTIMO AS EMPRESTIMO, EF.DTEMPREST AS DATA, 
+CF.NOME_CLI AS CLIENTE, 
+TX.DESCRICAO as PLANO,
+TD.VLRTAXA AS TAXA
+FROM EMPRESTIMO_FINAN EF
+LEFT JOIN CLIENTE_FINAN CF ON CF.NUMCONTA = EF.NUMCONTA
+LEFT JOIN TAXAS_DIA TD ON TD.IDTAXAS = EF.IDTAXAS AND TD.DTTAXA = EF.DTTAXA
+LEFT JOIN TAXAS TX ON TX.IDTAXAS = TD.IDTAXAS 
+;
+
+
+
+/* Retorna o contrato e o número de parcelas pendentes */
+SELECT EF.IDEMPRESTIMO AS EMPRESTIMO, EF.DTEMPREST AS DATA, 
+CF.NOME_CLI AS CLIENTE, 
+TX.DESCRICAO as PLANO,
+TD.VLRTAXA AS TAXA,
+(select count(*) from parcela_finan where idemprestimo = ef.idemprestimo and DTPAGTO is null) as "Parcelas pendentes",
+(select count(*) from parcela_finan where idemprestimo = ef.idemprestimo  ) as "Número de parcelas lançadas"
 FROM EMPRESTIMO_FINAN EF
 LEFT JOIN CLIENTE_FINAN CF ON CF.NUMCONTA = EF.NUMCONTA
 LEFT JOIN TAXAS_DIA TD ON TD.IDTAXAS = EF.IDTAXAS AND TD.DTTAXA = EF.DTTAXA
