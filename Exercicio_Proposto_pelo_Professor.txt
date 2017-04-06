@@ -1,4 +1,4 @@
-Comandos SQL execurtados
+Comandos SQL executados
 
 /* cria a tabela CLIENTE_FINAN */
 CREATE TABLE CLIENTE_FINAN (
