@@ -1,0 +1,12 @@
+/*********************************************************
+	CONSULTAS COM JOIN
+*********************************************************/
+	
+/* Pegando o contrato com nome do cliente e a taxa de juros */
+
+SELECT EF.*, CF.*, TD.*, TX.DESCRICAO
+FROM EMPRESTIMO_FINAN EF
+LEFT JOIN CLIENTE_FINAN CF ON CF.NUMCONTA = EF.NUMCONTA
+LEFT JOIN TAXAS_DIA TD ON TD.IDTAXAS = EF.IDTAXAS AND TD.DTTAXA = EF.DTTAXA
+LEFT JOIN TAXAS TX ON TX.IDTAXAS = TD.IDTAXAS 
+;
