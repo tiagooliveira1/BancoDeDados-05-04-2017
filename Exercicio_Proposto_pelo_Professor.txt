@@ -52,4 +52,39 @@ CREATE TABLE PARCELA_FINAN (
 	CONSTRAINT PARCELA_FINAN_IDEMPRESTIMO_FK FOREIGN KEY (IDEMPRESTIMO) REFERENCES EMPRESTIMO_FINAN(IDEMPRESTIMO)
 );
 
+/************************************************************************************
+***     					INSERÇÕES NAS TABELAS
+*************************************************************************************/
+/* Insere dados nas tabelas */
+INSERT INTO CLIENTE_FINAN (
+	NUMCONTA,
+	NOME_CLI,
+	DTNASC,
+	E_MAIL)
+	VALUES (
+	1,
+	'Tiago',
+	'06-04-1982',
+	'tiago@econtabil.com'
+	);
+	
+INSERT INTO CLIENTE_FINAN (
+	NUMCONTA,
+	NOME_CLI,
+	DTNASC,
+	E_MAIL)
+	VALUES (
+	2,
+	'Cliente Teste da Silva',
+	'15-09-1998',
+	'cliente@dasilva.org'
+	);
 
+INSERT INTO TAXAS (
+	IDTAXAS,
+	DESCRICAO)
+	VALUES (
+	1,
+	'Esfola cliente'
+	);
+	
