@@ -52,6 +52,8 @@ CREATE TABLE PARCELA_FINAN (
 	CONSTRAINT PARCELA_FINAN_IDEMPRESTIMO_FK FOREIGN KEY (IDEMPRESTIMO) REFERENCES EMPRESTIMO_FINAN(IDEMPRESTIMO)
 );
 
+
+
 /************************************************************************************
 ***     					INSERÇÕES NAS TABELAS
 *************************************************************************************/
@@ -86,5 +88,25 @@ INSERT INTO TAXAS (
 	VALUES (
 	1,
 	'Esfola cliente'
+	);
+	
+INSERT INTO TAXAS_DIA (
+	IDTAXAS,
+	DTTAXA,
+	VLRTAXA )
+	VALUES (
+	1,
+	'05-04-2017',
+	3.99
+	);
+	
+INSERT INTO TAXAS_DIA (
+	IDTAXAS,
+	DTTAXA,
+	VLRTAXA )
+	VALUES (
+	1,
+	'07-04-2017',
+	3.58
 	);
 	
